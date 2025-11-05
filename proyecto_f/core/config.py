@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 
 # librería en Python que permite cargar variables de entorno
 load_dotenv()
-
+ 
 class Settings(BaseSettings):
     PROJECT_NAME: str = os.getenv("PROJECT_NAME", "No Sabemos")
     PROJECT_VERSION: str = "0.0.1"

@@ -1,11 +1,12 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.router import usuarios
+from app.router import estado_normas
+from app.router import estado_normas
 
 app = FastAPI()
 
 # Incluir en el objeto app los routers
-app.include_router(usuarios.router, prefix="/usuario", tags=["servicios usuarios"])
+app.include_router(estado_normas.router, prefix="/usuario", tags=["servicios usuarios"])
 
 # Configuración de CORS para permitir todas las solicitudes desde cualquier origen
 app.add_middleware(
@@ -15,6 +16,9 @@ app.add_middleware(
     allow_methods=["GET", "POST", "PUT", "DELETE"],  # Permitir estos métodos HTTP
     allow_headers=["*"],  # Permitir cualquier encabezado en las solicitudes
 )
+
+app.include_router(estado_normas.router)
+
 
 @app.get("/")
 def read_root():

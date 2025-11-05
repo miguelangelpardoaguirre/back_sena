@@ -1,11 +1,11 @@
 from fastapi import Depends, HTTPException
 from sqlalchemy.orm import Session
-from app.crud.usuarios import get_user_by_email_security, get_user_by_id
+from app.crud.estado_normas import get_user_by_email_security, get_user_by_id
 from core.security import verify_password, verify_token
 from core.database import get_db
 from fastapi.security import OAuth2PasswordBearer
 
-
+ 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/access/token")
 
 def get_current_user(
